@@ -89,7 +89,7 @@ export const Settings: React.FC =
             <div className={'settings'}>
                 <h4>{t('settingsTitle')}</h4>
                 <hr/>
-                <h5>{t('interfaceLanguage')}</h5>
+                <h6>{t('interfaceLanguage')}</h6>
                 <Selector
                     options={interfaceLanguageList}
                     value={interfaceLang}
@@ -102,9 +102,26 @@ export const Settings: React.FC =
                     onChange={() => dispatch(changeCardViewAction())}
                 />
                 <hr/>
-                <h5>{t('searchSensitiveLettersForInterslavic')}</h5>
+                <h6>{t('showSlavicWordsInAlphabets')}</h6>
+                <Checkbox
+                    title={t('latin')}
+                    checked={alphabets.latin}
+                    onChange={() => dispatch(setAlphabets({latin: !alphabets.latin}))}
+                />
+                <Checkbox
+                    title={t('cyrillic')}
+                    checked={alphabets.cyrillic}
+                    onChange={() => dispatch(setAlphabets({cyrillic: !alphabets.cyrillic}))}
+                />
+                <Checkbox
+                    title={t('glagolitic')}
+                    checked={alphabets.glagolitic}
+                    onChange={() => dispatch(setAlphabets({glagolitic: !alphabets.glagolitic}))}
+                />
+                <hr/>
+                <h6>{t('searchSensitiveLettersForInterslavic')}</h6>
                 <div className={'settings__isv-search-letters'}>
-                    <h6>{t('standardOrthography')}</h6>
+                    <p>{t('standardOrthography')}</p>
                     <Checkbox
                         title={'ž š č (ж ш ч)'}
                         checked={isvSearchLetters.from.includes('ž')}
@@ -120,7 +137,7 @@ export const Settings: React.FC =
                         checked={isvSearchLetters.from.includes('y')}
                         onChange={() => dispatch(changeIsvSearchLetters('y'))}
                     />
-                    <h6>{t('etymologicalOrthography')}</h6>
+                    <p>{t('etymologicalOrthography')}</p>
                     <Checkbox
                         title={'å'}
                         checked={isvSearchLetters.from.includes('å')}
@@ -168,28 +185,10 @@ export const Settings: React.FC =
                     />
                 </div>
                 <hr/>
-                <h5>{t('searchByIsvWordForms')}</h5>
                 <Checkbox
-                    title={t('enable')}
+                    title={t('searchByIsvWordForms')}
                     checked={isvSearchByWordForms}
                     onChange={() => dispatch(changeIsvSearchByWordForms(!isvSearchByWordForms))}
-                />
-                <hr/>
-                <h5>{t('showSlavicWordsInAlphabets')}</h5>
-                <Checkbox
-                    title={t('latin')}
-                    checked={alphabets.latin}
-                    onChange={() => dispatch(setAlphabets({latin: !alphabets.latin}))}
-                />
-                <Checkbox
-                    title={t('cyrillic')}
-                    checked={alphabets.cyrillic}
-                    onChange={() => dispatch(setAlphabets({cyrillic: !alphabets.cyrillic}))}
-                />
-                <Checkbox
-                    title={t('glagolitic')}
-                    checked={alphabets.glagolitic}
-                    onChange={() => dispatch(setAlphabets({glagolitic: !alphabets.glagolitic}))}
                 />
             </div>
         );
