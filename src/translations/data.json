@@ -2385,18 +2385,18 @@
     "bg": "Включи"
   },
   "shortCardView": {
-    "en": "Compact results view",
-    "isv": "",
-    "ru": "Компактное отображение результатов",
-    "uk": "",
-    "be": "",
-    "pl": "",
-    "cs": "",
-    "sk": "",
-    "sl": "",
-    "hr": "",
-    "sr": "",
-    "mk": "",
-    "bg": ""
+    "en": "Compact view of search results",
+    "isv": "Kompaktny vid rezultatov iskanja",
+    "ru": "Компактный вид результатов поиска",
+    "uk": "Компактний вид результатів пошуку",
+    "be": "Кампактны выгляд вынікаў пошуку",
+    "pl": "Kompaktowy widok wyników wyszukiwania",
+    "cs": "Kompaktní zobrazení výsledků vyhledávání",
+    "sk": "Kompaktné zobrazenie výsledkov vyhľadávania",
+    "sl": "Kompakten prikaz rezultatov iskanja",
+    "hr": "Kompaktni prikaz rezultata pretraživanja",
+    "sr": "Компактан приказ резултата претраге",
+    "mk": "Компактен преглед на резултатите од пребарувањето",
+    "bg": "Компактен изглед на резултатите от търсенето"
   }
 }
