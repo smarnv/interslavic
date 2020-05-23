@@ -1,4 +1,4 @@
-import { changeIsvSearchLetters, setInterfaceLang, setAlphabets, changeIsvSearchByWordForms } from 'actions';
+import { changeIsvSearchLetters, setInterfaceLang, setAlphabets, changeIsvSearchByWordForms, changeCardViewAction } from 'actions';
 import { Selector } from 'components/Selector';
 import * as React from 'react';
 import { t } from 'translations';
@@ -10,6 +10,7 @@ import { useAlphabets } from 'hooks/useAlphabets';
 import { useIsvSearchLetters } from 'hooks/useIsvSearchLetters';
 import { useResults } from 'hooks/useResults';
 import { useIsvSearchByWordForms } from 'hooks/useIsvSearchByWordForms';
+import { useShortCardView } from 'hooks/useShortCardView';
 
 const interfaceLanguageList = [
     {
@@ -80,6 +81,7 @@ export const Settings: React.FC =
         const interfaceLang = useInterfaceLang();
         const alphabets = useAlphabets();
         const isvSearchLetters = useIsvSearchLetters();
+        const isShortCardView = useShortCardView();
         const isvSearchByWordForms = useIsvSearchByWordForms();
         useResults();
 
@@ -92,6 +94,12 @@ export const Settings: React.FC =
                     options={interfaceLanguageList}
                     value={interfaceLang}
                     onSelect={(langCode: string) => dispatch(setInterfaceLang(langCode))}
+                />
+                <hr/>
+                <Checkbox
+                    title={t('shortCardView')}
+                    checked={isShortCardView}
+                    onChange={() => dispatch(changeCardViewAction())}
                 />
                 <hr/>
                 <h5>{t('searchSensitiveLettersForInterslavic')}</h5>

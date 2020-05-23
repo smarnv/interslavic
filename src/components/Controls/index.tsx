@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux';
 import { useSearchExpanded } from 'hooks/useSearchExpanded';
 import classNames from 'classnames';
 import './index.scss';
+import ExpandIcon from './images/expand-icon.svg';
 
 export const Controls: React.FC =
     () => {
@@ -51,7 +52,9 @@ export const Controls: React.FC =
                         aria-expanded={searchExpanded}
                         className={'controls__expand-button'}
                         onClick={onCLick}
-                    />
+                    >
+                        <ExpandIcon />
+                    </button>
                 </div>
             </div>
         );
