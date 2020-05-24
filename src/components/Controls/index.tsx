@@ -7,6 +7,7 @@ import { SearchTypeSelector } from 'components/SearchTypeSelector';
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
 import { useSearchExpanded } from 'hooks/useSearchExpanded';
+import { useShortCardView } from 'hooks/useShortCardView';
 import classNames from 'classnames';
 import './index.scss';
 import ExpandIcon from './images/expand-icon.svg';
@@ -14,26 +15,27 @@ import ExpandIcon from './images/expand-icon.svg';
 export const Controls: React.FC =
     () => {
         const dispatch = useDispatch();
-        const searchExpanded = useSearchExpanded();
-        const [expanded, setExpanded] = React.useState<boolean>(searchExpanded);
+        const expand = useSearchExpanded();
+        const [expanded, setExpanded] = React.useState<boolean>(expand);
+        const short = useShortCardView();
 
         const onCLick = React.useCallback(() => {
-            dispatch(setSearchExpand(!searchExpanded));
-        }, [dispatch, searchExpanded, expanded]);
+            dispatch(setSearchExpand(!expanded));
+        }, [dispatch, expanded, expanded]);
 
         return (
             <div
-                className={classNames('controls', {expand: searchExpanded})}
+                className={classNames('controls', {expand, short})}
             >
                 <LangSelector/>
                 <InputText/>
                 <div
                     role={'region'}
                     aria-labelledby={'expandControls'}
-                    className={classNames('controls__expand-container', {expand: searchExpanded})}
+                    className={classNames('controls__expand-container', {expand})}
                     onTransitionEnd={(e: any) => setExpanded(getComputedStyle(e.target).opacity === '1')}
                 >
-                    {(searchExpanded || expanded) && (
+                    {(expand || expanded) && (
                         <>
                             <SearchTypeSelector key={'searchType'} />
                             <FlavorisationSelector key={'flavorisation'} />
@@ -49,7 +51,7 @@ export const Controls: React.FC =
                         id={'expandControls'}
                         type={'button'}
                         aria-label={'Expand search'}
-                        aria-expanded={searchExpanded}
+                        aria-expanded={expand}
                         className={'controls__expand-button'}
                         onClick={onCLick}
                     >

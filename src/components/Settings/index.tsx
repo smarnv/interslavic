@@ -97,6 +97,7 @@ export const Settings: React.FC =
                 />
                 <hr/>
                 <Checkbox
+                    className={'bold'}
                     title={t('shortCardView')}
                     checked={isShortCardView}
                     onChange={() => dispatch(changeCardViewAction())}
@@ -186,6 +187,7 @@ export const Settings: React.FC =
                 </div>
                 <hr/>
                 <Checkbox
+                    className={'bold'}
                     title={t('searchByIsvWordForms')}
                     checked={isvSearchByWordForms}
                     onChange={() => dispatch(changeIsvSearchByWordForms(!isvSearchByWordForms))}
